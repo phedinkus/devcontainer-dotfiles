@@ -28,4 +28,6 @@ mv ~/.zshrc.bak ~/.zshrc
 sed -i -E 's/^ZSH_THEME=.*/ZSH_THEME="agnoster"/' ~/.zshrc
 # update plugins
 sed -i -E 's/^plugins=.*/plugins=(git rails ruby zsh-syntax-highlighting zsh-autosuggestions)/' ~/.zshrc
-########################################################################################################################
+
+# change default shell to zsh
+chsh -s $(which zsh)
