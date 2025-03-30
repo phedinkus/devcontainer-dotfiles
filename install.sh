@@ -10,7 +10,6 @@ cd .. && rm -rf fonts
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 zsh -c 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
 zsh -c 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-cp ./.zshrc ~
 
 ########################################################################################################################
 #### set agnoster as theme, this came from https://gist.github.com/corentinbettiol/21a6d4e942a0ee58d51acb7996697a88
@@ -26,7 +25,7 @@ rm -f ~/.zshrc
 # restore saved zshrc
 mv ~/.zshrc.bak ~/.zshrc
 # update theme
-sed -i '/^ZSH_THEME/c\ZSH_THEME="agnoster"' ~/.zshrc
+sed -i -E 's/^ZSH_THEME=.*/ZSH_THEME="agnoster"/' ~/.zshrc
 # update plugins
-sed -i '/^plugins/c\plugins=(git rails ruby zsh-syntax-highlighting zsh-autosuggestions)' ~/.zshrc
+sed -i -E 's/^plugins=.*/plugins=(git rails ruby zsh-syntax-highlighting zsh-autosuggestions)/' ~/.zshrc
 ########################################################################################################################
